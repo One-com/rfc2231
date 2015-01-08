@@ -1,7 +1,7 @@
 {
   "name": "rfc2231",
   "version": "1.0.0",
-  "description": "Encode and decode rfc2231/rfc6266",
+  "description": "Encode and decode rfc2231/rfc5987",
   "main": "lib/rfc2231.js",
   "directories": {
     "test": "test"
