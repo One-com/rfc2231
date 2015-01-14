@@ -17,6 +17,10 @@ describe('rfc2231', function () {
         expect(null, 'to decode to', {});
     });
 
+    it('should only quote parameter values that contain tspecials (rfc2045)', function () {
+        expect({bar: 'baz', foo: '>', quotes: '""'}, 'to encode to', {bar: 'baz', foo: '">"', quotes: '"\\"\\""'});
+    });
+
     it('Single-line us-ascii (from RFC2231)', function () {
         expect({
             'title*': "us-ascii'en-us'This%20is%20%2A%2A%2Afun%2A%2A%2A"
@@ -91,7 +95,7 @@ describe('rfc2231', function () {
         expect({
             foo: 'aa'
         }, 'to encode back and forth to', {
-            foo: '"aa"'
+            foo: 'aa'
         });
     });
 
@@ -99,8 +103,8 @@ describe('rfc2231', function () {
         expect({
             foo: '0123456789012345678901234567890123456789012345678901234567890123456789'
         }, 'to encode back and forth to', {
-            'foo*0': '"012345678901234567890123456789012345678901234567890123456789"',
-            'foo*1': '"0123456789"'
+            'foo*0': '012345678901234567890123456789012345678901234567890123456789',
+            'foo*1': '0123456789'
         });
     });
 
