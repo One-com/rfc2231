@@ -133,4 +133,12 @@ describe('rfc2231', function () {
             'quux*2*': '%E6%E6%E6%E6'
         });
     });
+
+    it('parameter value containing delete character', function () {
+        expect({
+            filename: 'abc\x7Fdef.jpg'
+        }, 'to encode to', {
+            'filename*': 'iso-8859-1\'\'%61%62%63%7F%64%65%66%2E%6A%70%67'
+        });
+    });
 });
