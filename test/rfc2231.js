@@ -112,7 +112,7 @@ describe('rfc2231', function () {
         expect({
             bar: 'Fooæ'
         }, 'to encode back and forth to', {
-            'bar*': "iso-8859-1''%46%6F%6F%E6"
+            'bar*': "iso-8859-1''Foo%E6"
         });
     });
 
@@ -138,7 +138,7 @@ describe('rfc2231', function () {
         expect({
             filename: 'abc\x7Fdef.jpg'
         }, 'to encode to', {
-            'filename*': 'iso-8859-1\'\'%61%62%63%7F%64%65%66%2E%6A%70%67'
+            'filename*': 'iso-8859-1\'\'abc%7Fdef.jpg'
         });
     });
 });
