@@ -10,12 +10,12 @@ console.log(rfc2231.unfoldAndDecodeParameters({
     'title*0*': "us-ascii'en'This%20is%20even%20more%20",
     'title*1*': '%2A%2A%2Afun%2A%2A%2A%20',
     'title*2': "is it not?"
-});
+}));
 // {title: "This is even more ***fun*** is it not?"}
 
 console.log(rfc2231.encodeAndFoldParameters({
     foo: '0123456789012345678901234567890123456789012345678901234567890123456789'
-});
+}));
 // {
 //   'foo*0': '"012345678901234567890123456789012345678901234567890123456789"',
 //   'foo*1': '"0123456789"'
