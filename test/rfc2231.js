@@ -141,4 +141,14 @@ describe('rfc2231', function () {
             'filename*': 'iso-8859-1\'\'abc%7Fdef.jpg'
         });
     });
+
+    it('should ignore non-sequential parts', function () {
+        expect({
+            'URL*0': 'http',
+            'URL*1': '://',
+            'URL*1099511627776': 'www.exception.com'
+        }, 'to decode to', {
+            URL: 'http://'
+        });
+    });
 });
